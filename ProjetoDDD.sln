@@ -21,7 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Domain", "Projeto.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Infra.Data", "Projeto.Infra.Data\Projeto.Infra.Data.csproj", "{88250917-AC58-4DE6-A1BA-B04472A85027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.CrossCutting.Cryptography", "Projeto.CrossCutting.Cryptography\Projeto.CrossCutting.Cryptography.csproj", "{90AD46B9-6F6C-4963-8044-B60579635DC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.CrossCutting.Cryptography", "Projeto.CrossCutting.Cryptography\Projeto.CrossCutting.Cryptography.csproj", "{90AD46B9-6F6C-4963-8044-B60579635DC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A65B18AE-3E95-4803-931D-B50F69DC13C2}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
