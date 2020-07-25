@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Projeto.Domain.Aggregates.Produtos.Models
 {
@@ -8,7 +7,6 @@ namespace Projeto.Domain.Aggregates.Produtos.Models
     {
         public Guid Id { get; set; }
         public string Descricao { get; set; }
-
 
         #region Relacionamentos
 
