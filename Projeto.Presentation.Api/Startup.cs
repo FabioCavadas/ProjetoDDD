@@ -35,6 +35,13 @@ namespace Projeto.Presentation.Api
 
             //Configuração do EntityFramework
             EntityFrameworkSetup.ConfigureServices(services, Configuration);
+
+            //Configuração de Injeção de Dependência
+            DependencyInjectionSetup.ConfigureServices(services);
+
+            //Configuração do AutoMapper
+            AutoMapperSetup.ConfigureServices(services);           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
