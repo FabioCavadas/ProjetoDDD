@@ -28,8 +28,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                categoriaApplicationService.Create(model);
-                return Ok("Categoria cadastrado com sucesso.");
+                var result = categoriaApplicationService.Create(model);
+
+                return Ok(new
+                {
+                    Message = "Categoria cadastrado com sucesso.",
+                    Categoria = result
+                });
             }
             catch (Exception e)
             {
@@ -42,8 +47,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                categoriaApplicationService.Update(model);
-                return Ok("Categoria atualizado com sucesso.");
+                var result = categoriaApplicationService.Update(model);
+
+                return Ok(new
+                {
+                    Message = "Categoria atualizado com sucesso.",
+                    Categoria = result
+                });
             }
             catch (Exception e)
             {
@@ -57,9 +67,13 @@ namespace Projeto.Presentation.Api.Controllers
             try
             {
                 var model = new CategoriaExclusaoModel() { IdCategoria = id };
+                var result = categoriaApplicationService.Delete(model);
 
-                categoriaApplicationService.Delete(model);
-                return Ok("Categoria excluído com sucesso.");
+                return Ok(new
+                {
+                    Message = "Categoria excluído com sucesso.",
+                    Categoria = result
+                });
             }
             catch (Exception e)
             {
@@ -94,5 +108,3 @@ namespace Projeto.Presentation.Api.Controllers
         }
     }
 }
-
-

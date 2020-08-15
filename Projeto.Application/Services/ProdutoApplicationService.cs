@@ -21,24 +21,30 @@ namespace Projeto.Application.Services
             this.mapper = mapper;
         }
 
-        public void Create(ProdutoCadastroModel model)
+        public ProdutoDTO Create(ProdutoCadastroModel model)
         {
             var produto = mapper.Map<Produto>(model);
             produtoDomainService.Create(produto);
+
+            return mapper.Map<ProdutoDTO>(produto);
         }
 
-        public void Update(ProdutoEdicaoModel model)
+        public ProdutoDTO Update(ProdutoEdicaoModel model)
         {
             var produto = mapper.Map<Produto>(model);
             produtoDomainService.Update(produto);
+
+            return mapper.Map<ProdutoDTO>(produto);
         }
 
-        public void Delete(ProdutoExclusaoModel model)
+        public ProdutoDTO Delete(ProdutoExclusaoModel model)
         {
             var idProduto = Guid.Parse(model.IdProduto);
             var produto = produtoDomainService.GetById(idProduto);
 
             produtoDomainService.Delete(produto);
+
+            return mapper.Map<ProdutoDTO>(produto);
         }
 
         public List<ProdutoDTO> GetAll()
@@ -54,9 +60,3 @@ namespace Projeto.Application.Services
         }
     }
 }
-
-
-
-
-
-

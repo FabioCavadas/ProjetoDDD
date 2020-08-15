@@ -3,31 +3,31 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
+using System.Text;
 
 namespace Projeto.Api.Tests.Contexts
 {
     public class TestContext
     {
-        //atributo
-        private TestServer testServer;
-
-        //propriedade para realizar acesso à API
         public HttpClient HttpClient { get; set; }
 
-        //construtor 
+        //construtor -> ctor + 2x[tab]
         public TestContext()
         {
+            //ler o arquivo appsettings.json do projeto Presentation.Api
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            testServer = new TestServer(new WebHostBuilder()
-                .UseConfiguration(configuration)
-                .UseStartup<Presentation.Api.Startup>());
+            //executando o projeto Presentation.Api (Startup)
+            var testServer = new TestServer(
+                    new WebHostBuilder()
+                    .UseConfiguration(configuration)
+                    .UseStartup<Presentation.Api.Startup>()
+                );
 
+            //criando o HttpClient (cliente da api)
             HttpClient = testServer.CreateClient();
         }
     }

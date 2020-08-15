@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Projeto.Application.Contracts;
 using Projeto.Application.DTOs;
 using Projeto.Application.Models.Fornecedores;
@@ -23,24 +24,30 @@ namespace Projeto.Application.Services
             this.mapper = mapper;
         }
 
-        public void Create(FornecedorCadastroModel model)
+        public FornecedorDTO Create(FornecedorCadastroModel model)
         {
             var fornecedor = mapper.Map<Fornecedor>(model);
             fornecedorDomainService.Create(fornecedor);
+
+            return mapper.Map<FornecedorDTO>(fornecedor);
         }
 
-        public void Update(FornecedorEdicaoModel model)
+        public FornecedorDTO Update(FornecedorEdicaoModel model)
         {
             var fornecedor = mapper.Map<Fornecedor>(model);
             fornecedorDomainService.Update(fornecedor);
+
+            return mapper.Map<FornecedorDTO>(fornecedor);
         }
 
-        public void Delete(FornecedorExclusaoModel model)
+        public FornecedorDTO Delete(FornecedorExclusaoModel model)
         {
             var idFornecedor = Guid.Parse(model.IdFornecedor);
             var fornecedor = fornecedorDomainService.GetById(idFornecedor);
 
             fornecedorDomainService.Delete(fornecedor);
+
+            return mapper.Map<FornecedorDTO>(fornecedor);
         }
 
         public List<FornecedorDTO> GetAll()
@@ -56,4 +63,3 @@ namespace Projeto.Application.Services
         }
     }
 }
-

@@ -8,10 +8,9 @@ namespace Projeto.Application.Contracts
 {
     public interface ICategoriaApplicationService
     {
-        void Create(CategoriaCadastroModel model);
-        void Update(CategoriaEdicaoModel model);
-        void Delete(CategoriaExclusaoModel model);
-
+        CategoriaDTO Create(CategoriaCadastroModel model);
+        CategoriaDTO Update(CategoriaEdicaoModel model);
+        CategoriaDTO Delete(CategoriaExclusaoModel model);
         List<CategoriaDTO> GetAll();
         CategoriaDTO GetById(string id);
     }

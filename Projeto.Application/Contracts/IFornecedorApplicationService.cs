@@ -8,10 +8,9 @@ namespace Projeto.Application.Contracts
 {
     public interface IFornecedorApplicationService
     {
-        void Create(FornecedorCadastroModel model);
-        void Update(FornecedorEdicaoModel model);
-        void Delete(FornecedorExclusaoModel model);
-
+        FornecedorDTO Create(FornecedorCadastroModel model);
+        FornecedorDTO Update(FornecedorEdicaoModel model);
+        FornecedorDTO Delete(FornecedorExclusaoModel model);
         List<FornecedorDTO> GetAll();
         FornecedorDTO GetById(string id);
     }

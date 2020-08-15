@@ -27,8 +27,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                fornecedorApplicationService.Create(model);
-                return Ok("Fornecedor cadastrado com sucesso.");
+                var result = fornecedorApplicationService.Create(model);
+
+                return Ok(new
+                {
+                    Message = "Fornecedor cadastrado com sucesso.",
+                    Fornecedor = result
+                });
             }
             catch (Exception e)
             {
@@ -41,8 +46,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                fornecedorApplicationService.Update(model);
-                return Ok("Fornecedor atualizado com sucesso.");
+                var result = fornecedorApplicationService.Update(model);
+
+                return Ok(new
+                {
+                    Message = "Fornecedor atualizado com sucesso.",
+                    Fornecedor = result
+                });
             }
             catch (Exception e)
             {
@@ -57,8 +67,13 @@ namespace Projeto.Presentation.Api.Controllers
             {
                 var model = new FornecedorExclusaoModel() { IdFornecedor = id };
 
-                fornecedorApplicationService.Delete(model);
-                return Ok("Fornecedor excluído com sucesso.");
+                var result = fornecedorApplicationService.Delete(model);
+
+                return Ok(new
+                {
+                    Message = "Fornecedor excluído com sucesso.",
+                    Fornecedor = result
+                });
             }
             catch (Exception e)
             {
@@ -93,6 +108,3 @@ namespace Projeto.Presentation.Api.Controllers
         }
     }
 }
-
-
-

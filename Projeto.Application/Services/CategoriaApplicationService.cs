@@ -23,24 +23,30 @@ namespace Projeto.Application.Services
             this.mapper = mapper;
         }
 
-        public void Create(CategoriaCadastroModel model)
+        public CategoriaDTO Create(CategoriaCadastroModel model)
         {
             var categoria = mapper.Map<Categoria>(model);
             categoriaDomainService.Create(categoria);
+
+            return mapper.Map<CategoriaDTO>(categoria);
         }
 
-        public void Update(CategoriaEdicaoModel model)
+        public CategoriaDTO Update(CategoriaEdicaoModel model)
         {
             var categoria = mapper.Map<Categoria>(model);
             categoriaDomainService.Update(categoria);
+
+            return mapper.Map<CategoriaDTO>(categoria);
         }
 
-        public void Delete(CategoriaExclusaoModel model)
+        public CategoriaDTO Delete(CategoriaExclusaoModel model)
         {
             var id = Guid.Parse(model.IdCategoria);
             var categoria = categoriaDomainService.GetById(id);
 
             categoriaDomainService.Delete(categoria);
+
+            return mapper.Map<CategoriaDTO>(categoria);
         }
 
         public List<CategoriaDTO> GetAll()

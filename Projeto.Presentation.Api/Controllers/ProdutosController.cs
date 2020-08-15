@@ -27,8 +27,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                produtoApplicationService.Create(model);
-                return Ok("Produto cadastrado com sucesso.");
+                var result = produtoApplicationService.Create(model);
+
+                return Ok(new
+                {
+                    Message = "Produto cadastrado com sucesso.",
+                    Produto = result
+                });
             }
             catch (Exception e)
             {
@@ -41,8 +46,13 @@ namespace Projeto.Presentation.Api.Controllers
         {
             try
             {
-                produtoApplicationService.Update(model);
-                return Ok("Produto atualizado com sucesso.");
+                var result = produtoApplicationService.Update(model);
+
+                return Ok(new
+                {
+                    Message = "Produto atualizado com sucesso.",
+                    Produto = result
+                });
             }
             catch (Exception e)
             {
@@ -56,9 +66,13 @@ namespace Projeto.Presentation.Api.Controllers
             try
             {
                 var model = new ProdutoExclusaoModel() { IdProduto = id };
+                var result = produtoApplicationService.Delete(model);
 
-                produtoApplicationService.Delete(model);
-                return Ok("Produto excluído com sucesso.");
+                return Ok(new
+                {
+                    Message = "Produto excluído com sucesso.",
+                    Produto = result
+                });
             }
             catch (Exception e)
             {
@@ -93,4 +107,3 @@ namespace Projeto.Presentation.Api.Controllers
         }
     }
 }
-
